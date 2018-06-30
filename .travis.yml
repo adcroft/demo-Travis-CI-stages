@@ -8,15 +8,6 @@ stages:
   - compile
   - test
 
-env:
-  - MODE=symmetric
-  - MODE=nonsym
-
-matrix:
-  exclude:
-    - env: MODE=symmetric
-    - env: MODE=nonsym
-
 jobs:
   include:
     - stage: compile
@@ -30,7 +21,7 @@ jobs:
       - touch build/compile.$MODE
       - ls -lR
     - stage: test
-      #env: MODE=nonsym
+      env: MODE=nonsym
       script:
       - ls -lR
     - env: MODE=symmetric
