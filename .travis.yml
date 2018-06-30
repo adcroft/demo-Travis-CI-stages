@@ -12,6 +12,10 @@ env:
   - MODE=symmetric
   - MODE=nonsym
 
+matrix:
+  exclude:
+    - compiler: gcc
+
 jobs:
   include:
     - stage: compile
