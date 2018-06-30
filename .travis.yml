@@ -5,35 +5,30 @@ cache:
     - build
 
 stages:
-  - pre-test
-  - build-fms
   - compile
   - test
 
 env:
-  - MODE=repro
-  - MODE=debug
+  - MODE=symmetric
+  - MODE=nonsym
 
 jobs:
   include:
-    - stage: pre-test
+    - stage: compile
+      env: MODE=nonsym
       script:
-      - rm -rf build ; mkdir build
-      - touch build/pre-test1.ran
-      - ls -lR
-    - stage: build-fms
-      script:
-      - touch build/fms.built
+      - touch build/compile.$MODE
       - ls -lR
     - stage: compile
+      env: MODE=symmetric
       script:
-      - touch build/compile.repro
-      - ls -lR
-    - stage: compile
-      env: MODE=debug
-      script:
-      - touch build/compile.debug
+      - touch build/compile.$MODE
       - ls -lR
     - stage: test
+      env: MODE=nonsym
+      script:
+      - ls -lR
+    - stage: test
+      env: MODE=symmetric
       script:
       - ls -lR
