@@ -14,7 +14,7 @@ env:
 
 matrix:
   exclude:
-    - compiler: gcc
+    - env: MODE=symmetric
 
 jobs:
   include:
@@ -36,5 +36,3 @@ jobs:
       env: MODE=symmetric
       script:
       - ls -lR
-  exclude:
-    - stage: test
