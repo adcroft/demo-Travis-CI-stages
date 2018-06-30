@@ -10,6 +10,10 @@ stages:
   - compile
   - test
 
+env:
+  - MODE=repro
+  - MODE=debug
+
 jobs:
   include:
     - stage: pre-test
