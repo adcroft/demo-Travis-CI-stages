@@ -36,3 +36,5 @@ jobs:
       env: MODE=symmetric
       script:
       - ls -lR
+  exclude:
+    - stage: test
