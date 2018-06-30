@@ -1,13 +1,15 @@
+language: c
+
 jobs:
   include:
     - stage: pre-test
       script:
-        ls -lR
-        touch pre-test.ran
+      - ls -lR
+      - touch pre-test.ran
       script:
-        ls -lR
-        touch pre-test2.ran
+      - ls -lR
+      - touch pre-test2.ran
     - stage: test
       script:
-        ls -lR
-        touch test.ran
+      - ls -lR
+      - touch test.ran
