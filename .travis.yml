@@ -28,7 +28,6 @@ jobs:
     - script:
       - touch build/compile.2
       - ls -lR
-          - stage: compile
     - stage: test
       script:
       - ls -lR
