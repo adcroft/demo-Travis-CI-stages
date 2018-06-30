@@ -33,7 +33,6 @@ jobs:
       #env: MODE=nonsym
       script:
       - ls -lR
-#    - stage: test
-#      env: MODE=symmetric
-#      script:
-#      - ls -lR
+    - env: MODE=symmetric
+      script:
+      - ls -lR
