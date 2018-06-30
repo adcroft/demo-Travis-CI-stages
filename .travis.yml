@@ -10,12 +10,12 @@ jobs:
       script:
       - rm -rf build ; mkdir build
       - touch build/pre-test1.ran
-      - ls -lRA
-      script:
+      - ls -lR
+    - script:
       - rm -rf build ; mkdir build
       - touch build/pre-test2.ran
-      - ls -lRA
+      - ls -lR
     - stage: test
       script:
       - touch test.ran
-      - ls -lRA
+      - ls -lR
