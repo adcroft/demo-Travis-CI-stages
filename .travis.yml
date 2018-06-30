@@ -14,7 +14,8 @@ env:
 
 matrix:
   exclude:
-    - env: ""
+    - env: MODE=symmetric
+    - env: MODE=nonsym
 
 jobs:
   include:
@@ -32,7 +33,7 @@ jobs:
       #env: MODE=nonsym
       script:
       - ls -lR
-    - stage: test
-      #env: MODE=symmetric
-      script:
-      - ls -lR
+#    - stage: test
+#      env: MODE=symmetric
+#      script:
+#      - ls -lR
