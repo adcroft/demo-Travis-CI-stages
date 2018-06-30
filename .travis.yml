@@ -1,15 +1,19 @@
 language: c
 
+cache: build
+
 jobs:
   include:
     - stage: pre-test
       script:
-      - ls -lR
-      - touch pre-test.ran
+      - rm -rf build ; mkdir build
+      - touch build/pre-test1.ran
+      - ls -lRa
       script:
-      - ls -lR
-      - touch pre-test2.ran
+      - rm -rf build ; mkdir build
+      - touch build/pre-test2.ran
+      - ls -lRa
     - stage: test
       script:
-      - ls -lR
       - touch test.ran
+      - ls -lRa
