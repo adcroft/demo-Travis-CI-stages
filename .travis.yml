@@ -4,6 +4,12 @@ cache:
   directories:
     - build
 
+stages:
+  - pre-test
+  - build-fms
+  - compile
+  - test
+
 jobs:
   include:
     - stage: pre-test
@@ -11,11 +17,18 @@ jobs:
       - rm -rf build ; mkdir build
       - touch build/pre-test1.ran
       - ls -lR
-    - script:
-      - rm -rf build ; mkdir build
-      - touch build/pre-test2.ran
+    - stage: build-fms
+      script:
+      - touch build/fms.built
       - ls -lR
+    - stage: compile
+      script:
+      - touch build/compile.1
+      - ls -lR
+    - script:
+      - touch build/compile.2
+      - ls -lR
+          - stage: compile
     - stage: test
       script:
-      - touch test.ran
       - ls -lR
