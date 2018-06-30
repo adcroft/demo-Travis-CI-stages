@@ -6,16 +6,15 @@ cache:
 
 stages:
   - compile
-  - run
+  - test
 
-#env:
-#  - MODE=symmetric
-#  - MODE=nonsym
+env:
+  - MODE=symmetric
+  - MODE=nonsym
 
-#matrix:
-#  exclude:
-#    - env: MODE=symmetric
-#    - env: MODE=nonsym
+matrix:
+  exclude:
+    - env: ""
 
 jobs:
   include:
@@ -29,11 +28,11 @@ jobs:
       script:
       - touch build/compile.$MODE
       - ls -lR
-    - stage: run
-      env: MODE=nonsym
+    - stage: test
+      #env: MODE=nonsym
       script:
       - ls -lR
-    - stage: run
-      env: MODE=symmetric
+    - stage: test
+      #env: MODE=symmetric
       script:
       - ls -lR
