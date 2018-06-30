@@ -8,13 +8,14 @@ stages:
   - compile
   - run
 
-env:
-  - MODE=symmetric
-  - MODE=nonsym
+#env:
+#  - MODE=symmetric
+#  - MODE=nonsym
 
-matrix:
-  exclude:
-    - env: MODE=symmetric
+#matrix:
+#  exclude:
+#    - env: MODE=symmetric
+#    - env: MODE=nonsym
 
 jobs:
   include:
