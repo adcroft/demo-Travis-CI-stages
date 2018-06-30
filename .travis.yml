@@ -27,10 +27,12 @@ jobs:
       - ls -lR
     - stage: compile
       script:
-      - touch build/compile.1
+      - touch build/compile.repro
       - ls -lR
-    - script:
-      - touch build/compile.2
+    - stage: compile
+      env: MODE=debug
+      script:
+      - touch build/compile.debug
       - ls -lR
     - stage: test
       script:
