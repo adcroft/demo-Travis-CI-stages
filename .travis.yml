@@ -34,6 +34,7 @@ jobs:
       - ls -lR
     - stage: test
       install: skip
+      env: JOB="Other test"
       script:
       - echo "Other TEST"
       - ls -lR
