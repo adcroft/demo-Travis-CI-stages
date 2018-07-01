@@ -20,13 +20,11 @@ install:
 
 jobs:
   include:
-    - stage: compile
+    - &compile-code
+      stage: compile
       env: MODE=nonsym
       script:
       - touch build/compile.$MODE
       - ls -lR
-    - stage: compile
+    - <<: *copmile-code
       env: MODE=symmetric
-      script:
-      - touch build/compile.$MODE
-      - ls -lR
