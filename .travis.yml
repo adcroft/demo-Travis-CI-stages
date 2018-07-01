@@ -32,6 +32,11 @@ jobs:
       script:
       - rm build/*
       - ls -lR
+    - stage: test
+      install: skip
+      script:
+      - echo "Other TEST"
+      - ls -lR
     - <<: *compile-code
       env: MODE=nonsym
     - <<: *clean-build
