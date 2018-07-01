@@ -26,5 +26,5 @@ jobs:
       script:
       - touch build/compile.$MODE
       - ls -lR
-    - <<: *copmile-code
+    - <<: *compile-code
       env: MODE=symmetric
