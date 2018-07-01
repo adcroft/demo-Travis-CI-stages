@@ -5,7 +5,7 @@ cache:
     - build
 
 stages:
-  - compile
+  - check and compile
   - test
   - cleanup
 
@@ -20,8 +20,12 @@ install:
 
 jobs:
   include:
+    - stage: check and compile
+      env: JOB="Check code"
+      script:
+      - echo "Run code check"
     - &compile-code
-      stage: compile
+      stage: check and compile
       env: MODE=symmetric
       script:
       - touch build/compile.$MODE
