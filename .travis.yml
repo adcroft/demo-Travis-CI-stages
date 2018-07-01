@@ -12,10 +12,11 @@ env:
   - MODE=symmetric
   - MODE=nonsym
 
-matrix:
-  exclude:
-    - env: MODE=symmetric
-    - env: MODE=nonsym
+install:
+  - ls -lR
+  - touch build/install.ran
+  - touch configure Makefile
+  - ls -lR
 
 jobs:
   include:
@@ -28,11 +29,4 @@ jobs:
       env: MODE=symmetric
       script:
       - touch build/compile.$MODE
-      - ls -lR
-    - stage: test
-      #env: MODE=nonsym
-      script:
-      - ls -lR
-    - env: MODE=symmetric
-      script:
       - ls -lR
