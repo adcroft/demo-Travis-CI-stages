@@ -22,9 +22,17 @@ jobs:
   include:
     - &compile-code
       stage: compile
-      env: MODE=nonsym
+      env: MODE=symmetric
       script:
       - touch build/compile.$MODE
       - ls -lR
-    - <<: *compile-code
+    - &clean-build
+      stage: cleanup
       env: MODE=symmetric
+      script:
+      - rm build/*
+      - ls -lR
+    - <<: *compile-code
+      env: MODE=nonsym
+    - <<: *clean-build
+      env: MODE=nonsym
