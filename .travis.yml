@@ -30,19 +30,32 @@ jobs:
       script:
       - touch build/compile.$MODE
       - ls -lR
+    - <<: *compile-code
+      env: MODE=nonsym
     - &clean-build
       stage: cleanup
       env: MODE=symmetric
       script:
       - rm build/*
       - ls -lR
+    - <<: *clean-build
+      env: MODE=nonsym
     - stage: test
       install: skip
       env: JOB="Other test"
       script:
       - echo "Other TEST"
       - ls -lR
-    - <<: *compile-code
-      env: MODE=nonsym
-    - <<: *clean-build
+    - &run-tests
+      stage: test
+      env: MODE=symmetric
+      script:
+      - echo Test 1
+      - ls -lR
+      stage: test
+      env: MODE=symmetric
+      script:
+      - echo Test 2
+      - ls -lR
+    - <<: *run-tests
       env: MODE=nonsym
