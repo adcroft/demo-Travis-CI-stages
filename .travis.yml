@@ -46,16 +46,3 @@ jobs:
       script:
       - echo "Other TEST"
       - ls -lR
-    - &run-tests
-      stage: test
-      env: MODE=symmetric
-      script:
-      - echo Test 1
-      - ls -lR
-      stage: test
-      env: MODE=symmetric
-      script:
-      - echo Test 2
-      - ls -lR
-    - <<: *run-tests
-      env: MODE=nonsym
